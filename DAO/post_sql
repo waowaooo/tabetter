@@ -1,0 +1,13 @@
+CREATE TABLE post (
+  post_id INT PRIMARY KEY AUTO_INCREMENT,
+  post_detail VARCHAR(255) NOT NULL,
+  post_date DATETIME NOT NULL,
+  post_images BLOB,
+  post_like INT DEFAULT 0 NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  store VARCHAR(255),
+  menu VARCHAR(255),
+  price VARCHAR(255),
+  address VARCHAR(255),
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
