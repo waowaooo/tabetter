@@ -1,0 +1,9 @@
+CREATE TABLE forum_comment (
+  forum_comment_id INT PRIMARY KEY AUTO_INCREMENT,
+  forum_comment_detail VARCHAR(255) NOT NULL,
+  forum_comment_date DATE NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  forum_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id),
+  FOREIGN KEY (forum_id) REFERENCES forum(forum_id)
+);

@@ -1,8 +1,10 @@
 CREATE TABLE forum (
   forum_id INT PRIMARY KEY AUTO_INCREMENT,
-  forum_detail TEXT NOT NULL,
+  forum_detail VARCHAR(255) NOT NULL,
   title VARCHAR(255) NOT NULL,
   forum_date DATETIME NOT NULL,
-  user_id INT NOT NULL,
+  user_id CHAR(8) NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
+
+
