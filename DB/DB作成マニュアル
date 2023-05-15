@@ -1,0 +1,13 @@
+phpMyAdminで構築する
+
+DB名：tabetterdb
+
+作成順序
+１user
+2 post
+3 post_comment
+4 likes
+5 forum
+6 forum_comment
+
+データ追加はまだしてない

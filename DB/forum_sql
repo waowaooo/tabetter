@@ -1,0 +1,21 @@
+CREATE TABLE forum (
+  forum_id INT PRIMARY KEY AUTO_INCREMENT,
+  forum_detail VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  forum_date DATETIME NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+
+
+INSERT INTO forum (forum_id, forum_detail, title, user_id)
+VALUES (1, 'このフォーラムではプログラミングについて話し合いましょう。', 'プログラミングの話題', 2);
+
+INSERT INTO forum (forum_id, forum_detail, title, user_id)
+VALUES (2, '旅行の話題について語りましょう。', '旅行の話題', 3);
+
+INSERT INTO forum (forum_id, forum_detail, title, user_id)
+VALUES (3, '新しい映画の話題について話しましょう！', '最新映画の話題', 1);
+
+

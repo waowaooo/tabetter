@@ -1,0 +1,18 @@
+CREATE TABLE post (
+  post_id INT PRIMARY KEY AUTO_INCREMENT,
+  post_detail VARCHAR(255) NOT NULL,
+  post_date DATETIME NOT NULL,
+  post_images BLOB,
+  post_like INT DEFAULT 0 NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  store VARCHAR(255),
+  menu VARCHAR(255),
+  price VARCHAR(255),
+  address VARCHAR(255),
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+INSERT INTO post (post_id, post_detail, post_date, post_images, likes, user_id, store, menu, price, address)
+VALUES (1, 'I had a great meal at this new Italian restaurant in town!', '2022-01-01', ARRAY['https://example.com/images/post1_1.jpg', 'https://example.com/images/post1_2.jpg'], 10, 1, 'La Trattoria', 'Spaghetti Carbonara', 25.99, '123 Main St, Anytown USA'),
+       (2, 'Just tried the best sushi in town!', '2022-02-15', ARRAY['https://example.com/images/post2_1.jpg'], 5, 2, 'Sushi Bar', 'Nigiri', 12.50, '456 Oak St, Anycity USA'),
+       (3, 'Check out this beautiful sunset I saw today!', '2022-03-20', ARRAY['https://example.com/images/post3_1.jpg'], 20, 3, NULL, NULL, NULL, '789 Elm St, Anyvillage USA');

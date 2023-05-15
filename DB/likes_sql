@@ -5,3 +5,7 @@ CREATE TABLE like (
   FOREIGN KEY (post_id) REFERENCES post(post_id),
   FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
+
+
+INSERT INTO likes (user_id, post_id)
+VALUES (1, 2), (2, 3), (3, 1);
