@@ -1,0 +1,15 @@
+CREATE TABLE user (
+  user_id CHAR(8) PRIMARY KEY,
+  user_name VARCHAR(10) NOT NULL,
+  mail VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  profile_image BLOB,
+  bio VARCHAR(255)
+);
+
+
+
+INSERT INTO user (user_name, mail, password, bio)
+VALUES ('たまねぎ星人魑魅魍魎', 'tamanegi@gmail.com', 'pass1','福岡県在住のたまねぎです。好きな野菜は新玉ねぎ'),
+       ('Jane Doe', 'jane.doe@example.com', 'letmein', 'https://example.com/profile_images/jane_doe.jpg', 'I am a marketing professional based in New York.', 1000, 1),
+       ('Bob Johnson', 'bob.johnson@example.com', 'abc123', NULL, NULL, 250, 5);

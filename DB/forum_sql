@@ -1,0 +1,15 @@
+CREATE TABLE forum (
+  forum_id INT PRIMARY KEY AUTO_INCREMENT,
+  forum_detail VARCHAR(255) NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  forum_date DATETIME NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+
+
+INSERT INTO forum (forum_detail, title, forum_date, user_id)
+VALUES ('麻生専門学校の近くで美味しい店があったら、是非教えて欲しいです！予算は100円～2000円でお願いします。', '麻生専門学校の近くで美味しい店ありませんか？', CURRENT_TIMESTAMP, 'tamanegi');
+
+

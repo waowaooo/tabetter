@@ -1,0 +1,15 @@
+CREATE TABLE post (
+  post_id INT PRIMARY KEY AUTO_INCREMENT,
+  post_detail VARCHAR(255) NOT NULL,
+  post_date DATETIME NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  store VARCHAR(255),
+  menu VARCHAR(255),
+  price VARCHAR(255),
+  address VARCHAR(255),
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+INSERT INTO post (post_detail, post_date, user_id, store, menu, price, address)
+VALUES ('このチャーハン美味しかった', CURRENT_TIMESTAMP, 'avocado1', '上海チャーハン福岡博多店', 'チャーハン', '1000','福岡市博多区'),
+       ('博多に出来たホットサンド専門店、リーズナブルな価格で味も良くコスパ最高でした。', CURRENT_TIMESTAMP, 'tamanegi', '博多サンド', 'チキンホットサンド', '1500','福岡市博多区駅周辺');

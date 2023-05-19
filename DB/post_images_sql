@@ -1,0 +1,5 @@
+CREATE TABLE post_images (
+  post_id INT PRIMARY KEY,
+  post_image BLOB,
+  FOREIGN KEY (post_id) REFERENCES post(post_id)
+);
