@@ -1,0 +1,18 @@
+CREATE TABLE forum_comment (
+  forum_comment_id INT PRIMARY KEY AUTO_INCREMENT,
+  forum_reply_id INT,
+  forum_comment_detail VARCHAR(255) NOT NULL,
+  forum_comment_date DATETIME NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  forum_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id),
+  FOREIGN KEY (forum_id) REFERENCES forum(forum_id)
+);
+
+INSERT INTO forum_comment (forum_comment_detail, forum_comment_date, user_id, forum_id)
+VALUES
+  ('聞く前に自分で調べましょう',CURRENT_TIMESTAMP, 'avocado1', 1);
+
+INSERT INTO forum_comment (forum_reply_id, forum_comment_detail, forum_comment_date, user_id, forum_id)
+VALUES
+  (1, '調べた上で聞いています。',CURRENT_TIMESTAMP, 'tamanegi', 1);

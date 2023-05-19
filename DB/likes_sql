@@ -1,0 +1,11 @@
+CREATE TABLE likes (
+  post_id INT,
+  user_id CHAR(8),
+  PRIMARY KEY (post_id, user_id),
+  FOREIGN KEY (post_id) REFERENCES post(post_id),
+  FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
+
+INSERT INTO likes (user_id, post_id)
+VALUES ('tamanegi', 1);

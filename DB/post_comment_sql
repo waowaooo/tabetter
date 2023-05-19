@@ -1,0 +1,17 @@
+CREATE TABLE post_comment (
+  comment_id INT PRIMARY KEY AUTO_INCREMENT,
+  reply_id INT,
+  comment_detail VARCHAR(255) NOT NULL,
+  comment_date DATETIME NOT NULL,
+  user_id CHAR(8) NOT NULL,
+  post_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(user_id),
+  FOREIGN KEY (post_id) REFERENCES post(post_id)
+);
+
+
+INSERT INTO post_comment (comment_detail,comment_date, user_id, post_id)
+VALUES ('めっちゃ美味しそうですね。私も今度行ってみたいです', CURRENT_TIMESTAMP, 'tamanegi', 1);
+
+INSERT INTO post_comment (reply_id, comment_detail,comment_date, user_id, post_id)
+VALUES (1 ,'美味しかったですよ！おすすめです', CURRENT_TIMESTAMP, 'avocado1', 1);
