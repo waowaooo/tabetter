@@ -9,13 +9,7 @@ CREATE TABLE forum (
 
 
 
-INSERT INTO forum (forum_id, forum_detail, title, user_id)
-VALUES (1, 'このフォーラムではプログラミングについて話し合いましょう。', 'プログラミングの話題', 2);
-
-INSERT INTO forum (forum_id, forum_detail, title, user_id)
-VALUES (2, '旅行の話題について語りましょう。', '旅行の話題', 3);
-
-INSERT INTO forum (forum_id, forum_detail, title, user_id)
-VALUES (3, '新しい映画の話題について話しましょう！', '最新映画の話題', 1);
+INSERT INTO forum (forum_detail, title, forum_date, user_id)
+VALUES ('麻生専門学校の近くで美味しい店があったら、是非教えて欲しいです！予算は100円～2000円でお願いします。', '麻生専門学校の近くで美味しい店ありませんか？', CURRENT_TIMESTAMP, 'tamanegi');
 
 

@@ -1,5 +1,6 @@
 CREATE TABLE post_comment (
   comment_id INT PRIMARY KEY AUTO_INCREMENT,
+  reply_id INT,
   comment_detail VARCHAR(255) NOT NULL,
   comment_date DATETIME NOT NULL,
   user_id CHAR(8) NOT NULL,
@@ -9,8 +10,8 @@ CREATE TABLE post_comment (
 );
 
 
-INSERT INTO post_comment (comment_detail, user_id, post_id)
-VALUES ('Great post!', 2, 1),
-       ('I love this place too', 3, 1),
-       ('I haven''t been here before, but it looks delicious', 4, 1),
-       ('Thanks for the recommendation!', 5, 1);
+INSERT INTO post_comment (comment_detail,comment_date, user_id, post_id)
+VALUES ('めっちゃ美味しそうですね。私も今度行ってみたいです', CURRENT_TIMESTAMP, 'tamanegi', 1);
+
+INSERT INTO post_comment (reply_id, comment_detail,comment_date, user_id, post_id)
+VALUES (1 ,'美味しかったですよ！おすすめです', CURRENT_TIMESTAMP, 'avocado1', 1);
