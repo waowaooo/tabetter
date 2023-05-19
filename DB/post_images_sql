@@ -3,3 +3,6 @@ CREATE TABLE post_images (
   post_image BLOB,
   FOREIGN KEY (post_id) REFERENCES post(post_id)
 );
+
+
+INSERT INTO post_images (post_id) VALUES(1),(2);
