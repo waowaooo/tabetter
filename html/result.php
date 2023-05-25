@@ -1,0 +1,1 @@
+<img src="display.php?id=2" width="100">
