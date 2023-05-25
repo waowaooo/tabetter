@@ -11,6 +11,22 @@ div .card-body {
     padding: 0;
 }
 
+div .col-6 {
+    margin: 0;
+    padding: 0;
+}
+
+div .d-flex.justify-content-end {
+    width: 23%;
+    margin-left: 60%;
+}
+
+div .d-flex.justify-content-center {
+    width: 23%;
+    margin-left: 45%;
+    padding-top: 1%;
+}
+
 .profielIcon {
     width: 40px;
     height: 40px;
@@ -29,11 +45,11 @@ div .card-body {
 }
 
 .like{
-    padding-left: 5%;
+    padding-left: 15%;
 }
 
 .comment{
-    padding-left: 5%;
+    padding-left: 15%;
 }
 
 .userName {
@@ -53,3 +69,38 @@ div .card-body {
     font-size: 20px;
     line-height: 1;
 }
+
+
+/* style.css */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 1%;
+    width: 90%;
+    background-color: var(--primary-gree);
+    padding: 10px;
+    margin-left: 6%;
+    margin-right: 4%;
+   }
+   .border{
+     display: flex;
+     position: fixed;
+     bottom: 10%;
+     width: 100%;
+     height: 5px;
+     background-color: rgb(235, 233, 233);
+   }
+   a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   .image-size {
+    width: 40px;
+  }
+  .image-size1 {
+    width: 50px;
+  }
+  
+  
