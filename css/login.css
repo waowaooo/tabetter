@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* @media screen and (max-width:500px) {
     #logoImg{
         padding-right: 37px;
@@ -5,6 +6,12 @@
 } */
 #logoImg{
     padding-right: 37px;
+=======
+@media screen and (max-width:500px) {
+    #logoImg{
+        padding-right: 37px;
+    }
+>>>>>>> Stashed changes
 }
 .logo{
     height: 150px; 
