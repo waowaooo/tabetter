@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+
 }
 .frame{
   width: 95%; /* 幅を設定 */
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 00px;
+  height: 200px;
   padding: 10px 20px;
 }
 .button {
