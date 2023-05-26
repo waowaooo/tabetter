@@ -13,9 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 20px;
-  height: 200px;
 }
 .name_id{
   display: flex;
@@ -23,8 +21,6 @@
   align-items: center;
   color: dimgray;
 }
-
-
 .waku{
   display: flex;
   justify-content: center;
