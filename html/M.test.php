@@ -42,7 +42,7 @@
     <div>
         <?= $forumdao->getForumId("1"); ?>
     </div>
-    <form method="POST" action="./save.php" enctype="multipart/form-data">
+    <form method="POST" action="../DAO/save.php" enctype="multipart/form-data">
     <input type="text" name="post_id" placeholder="1">
     <input type="file" name="image">
     <input type="submit" value="送信！">
