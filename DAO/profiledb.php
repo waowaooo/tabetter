@@ -7,25 +7,45 @@ class DAO_profile{
                         'webuser', 'abccsd2');
         return $pdo;
     }
-
-    public function getForumId($forumid){
-
+    //名前を変更する関数
+    public function saveName($userid,$name){
+        //$id = intval($userid);  //$idをstring型からint型に変換  
         $pdo = $this -> dbConnect();
 
         //SQLの生成　入力を受け取る部分は”？”
-        $sql = "SELECT * FROM forum WHERE forum_id = ?";
+        $sql = "UPDATE user
+        SET user_name = ?,
+        WHERE user_id = ?";
 
         //prepare:準備　戻り値を変数に保持
         $ps = $pdo -> prepare($sql);
 
         //”？”に値を設定する
-        $ps->bindValue(1, $forumid ,PDO::PARAM_INT); 
+        $ps->bindValue(1, $name ,PDO::PARAM_STR); 
+        $ps->bindValue(2, $userid ,PDO::PARAM_INT); 
         
         //SQLの実行
         $ps->execute();
+    }
+    //プロフィールを変更する関数
+    public function saveBio($userid,$bio){
+        //$id = intval($userid);  //$idをstring型からint型に変換  
+        $pdo = $this -> dbConnect();
 
-        //実行結果を配列に格納
-        $result = $ps->fetchAll(PDO::FETCH_ASSOC);
+        //SQLの生成　入力を受け取る部分は”？”
+        $sql = "UPDATE user
+        SET bio = ?,
+        WHERE user_id = ?";
+
+        //prepare:準備　戻り値を変数に保持
+        $ps = $pdo -> prepare($sql);
+
+        //”？”に値を設定する
+        $ps->bindValue(1, $bio ,PDO::PARAM_STR); 
+        $ps->bindValue(2, $userid ,PDO::PARAM_INT); 
+        
+        //SQLの実行
+        $ps->execute();
     }
 
 

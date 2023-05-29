@@ -1,6 +1,6 @@
 <?php
 
-//post_idをゲットして画像を表示する
+//画像を表示テスト（使わない関数）
 
 //データベースに接続
 $pdo = new PDO('mysql:host=localhost; dbname=tabetterdb; charset=utf8',
