@@ -42,9 +42,10 @@
     <div>
         <?= $forumdao->getForumId("1"); ?>
     </div>
-    <form method="POST" action="../DAO/save.php" enctype="multipart/form-data">
-    <input type="text" name="post_id" placeholder="1">
+    <form method="POST" action="../DAO/imagesdb.php" enctype="multipart/form-data">
+    <!-- <input type="text" name="post_id" placeholder="1"> -->
     <input type="file" name="image">
+    <input type="text" name="id">
     <input type="submit" value="送信！">
 </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
