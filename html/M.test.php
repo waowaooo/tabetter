@@ -12,6 +12,7 @@
             border-radius: 14px;
         }
     </style>
+    <link rel="stylesheet" href="../css/MaedaTest.css">
 </head>
 <?php 
     require_once '../DAO/forumdb.php';
@@ -48,6 +49,15 @@
     <input type="text" name="id">
     <input type="submit" value="送信！">
 </form>
+
+<div id="app">
+    <!-- modalclose -->
+    <open-modal v-show="showContent" v-on:from-child="closeModal"></open-modal>
+
+    <button v-on:click="openModal" class="button-style">
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="../js/MaedaTest.js"></script>
 </body>
 </html>
