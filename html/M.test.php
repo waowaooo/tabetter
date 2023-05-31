@@ -51,8 +51,11 @@
 </form>
 
 <div id="app">
-    <!-- modalclose -->
-    <open-modal v-show="showContent" v-on:from-child="closeModal"></open-modal>
+    <!-- open-modalの中身が表示される -->
+    <open-modal v-show="showContent" v-on:from-child="closeModal">
+        <input type="text">
+        <button>決定！</button>
+    </open-modal>
 
     <button v-on:click="openModal" class="button-style">
 </div>

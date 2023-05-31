@@ -19,8 +19,8 @@
   
   #content{
     z-index:6;
-    width:50%;
-    /* height:30%; */
+    width:90%;
+    height:80%;
     padding: 1em;
     background:#fff;
   }
