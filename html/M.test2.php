@@ -12,7 +12,7 @@
             border-radius: 14px;
         }
     </style>
-    <link rel="stylesheet" href="../css/MaedaTest.css">
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
 <?php 
     require_once '../DAO/forumdb.php';

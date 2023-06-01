@@ -12,7 +12,7 @@
             border-radius: 14px;
         }
     </style>
-    <link rel="stylesheet" href="../css/MaedaTest.css">
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
 <?php 
     require_once '../DAO/forumdb.php';
@@ -51,12 +51,15 @@
             <div>
                 <p>投稿詳細のテキストボックス</p>
                 <input type="text" name="detail">
-                <p>店名のテキストボックス</p>
-                <input type="text" name="store">
-                <p>メニュー名のテキストボックス</p>
-                <input type="text" name="menu">
-                <p>価格のテキストボックス</p>
-                <input type="text" name="price">
+                <details>
+                <summary>詳細</summary>
+                    <p>店名のテキストボックス</p>
+                    <input type="text" name="store">
+                    <p>メニュー名のテキストボックス</p>
+                    <input type="text" name="menu">
+                    <p>価格のテキストボックス</p>
+                    <input type="text" name="price">
+                    </details>
             </div>
             <div>
                 <p>画像を最大４枚まで選択</p>
