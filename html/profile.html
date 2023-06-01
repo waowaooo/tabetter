@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profile.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/Bar.css">
     
+
+
     <title></title>
     <style>
       #header{
@@ -58,37 +62,56 @@
 <body>
 
   <div class="profile">
-      <div id="photo">
-            <img src="../DB/image/たまねぎさん.jpg" alt="プロフィール画像" class="p_photo">
-      </div>
-            <div class="account">
-                <h1 class="name">タマネギ星人魑魅魍魎</h1>
-                <p class="name_id">@tamanegisan</p>
-            </div>
-                <div class="waku">
-                    <div class="frame"
-    <div>
-      <div id="fhoto">
-    <!-- プロフィール画像 -->
-    <img src="14928ca6daea764904f72dedaf0d376e.jpg" alt="プロフィール画像">
-    <!-- アカウント名やユーザー名などのテキスト情報 -->
-    <div>
-    <h1 class="name">タマネギ星人魑魅魍魎</h1>
-    <p class="name_id">@tamanegisan</p>
-      </div>
-    <!-- 自己紹介文 -->
-    
-    <div>
 
+        <div class="photo">
+            <img src="../svg/tamanegi.svg" alt="プロフィール画像" class="p_photo">
+              <div class="edit">
+                <img src="../svg/tpyosaka.svg" alt="編集ボタン" >
+        </div>
+              </div>
+    <div class="account">
+        <h1 class="name">タマネギ星人魑魅魍魎</h1>
+        <p class="name_id">@tamanegisan</p>
+    <div class="rank">
+          <img src="../svg/trophy.svg" alt="トロフィー" class="trophy"><p id="r_name">ブロンズ</p>
+    </div>
 
-                    </div>
-                </div>
+      <div class="waku">
+        <div class="frame">
+        </div>
+      </div>
         <div class="toukou">
             <button class="button">投稿一覧</button>
         </div>
-  </div>
 
+        <div class="border"></div>
+        
+       <div class="navigation">
+        <a class="list-link" href="#" onclick="changeImage(this, 'time.html')">
+        <i class="icon">
+        <img src="../svg/time.svg" class="image-size">
+        </i>
+        </a>
+        <a class="list-link" href="#" onclick="changeImage2(this, 'forum.html')">
+        <i class="icon">
+        <img src="../svg/forum.svg" class="image-size1">
+        </i>
+        </a>
+        <a class="list-link" href="javascript:void(0);" onclick="changeImage3(this)">
+        <i class="icon">
+        <img src="../svg/post.svg" class="image-size">
+        </i>
+        </a>
+        <a class="list-link" href="#" onclick="changeImage4(this, 'profile.html')">
+        <i class="icon">
+        <img src="../svg/profile.svg" class="image-size">
+        </i>
+        </a>
+       </div>
+  </div>
+  <script src="../js/Bar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
 </body>
 
