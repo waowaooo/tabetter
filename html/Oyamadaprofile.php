@@ -47,6 +47,7 @@
         </div>
     </div>
   </header>
+  
   <!-- ヘッダー↑ -->
 
 <div id="photo">
