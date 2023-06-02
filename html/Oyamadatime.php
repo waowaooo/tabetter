@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="../css/Oyamadatime2.css">
 </head>
 <body>
+    <?php
+        require '../DAO/postdb.php';
+        $daoPost = new DAO_post();
+    ?>
     <div id="app">
     <!-- ヘッダー -->
    <header class="mb-3 border-bottom" id="header">

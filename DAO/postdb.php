@@ -4,7 +4,7 @@ class DAO_post{
     private function dbConnect(){
         //データベースに接続
         $pdo = new PDO('mysql:host=localhost; dbname=tabetterdb; charset=utf8',
-                        'webuser', 'abccsd2');
+                        'root', 'root');
         return $pdo;
     }
 
@@ -18,7 +18,7 @@ class DAO_post{
 
         $ps->bindValue(1, $id, PDO::PARAM_INT);
 
-        $ps->$execute();
+        $ps->execute();
         $result = $ps->fetchAll();
 
         return $reuslt;
