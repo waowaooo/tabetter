@@ -1,16 +1,19 @@
 <?php
 //セッションスタート
     session_start();
+    //DAO接続
     require_once '../DAO/logindb.php';
     $dbmng = new DAO_Logindb;
+    //POST要求があれば
     if ($_SERVER['REQUEST_METHOD']==='POST') {
         try {
-            $userArray = $dbmng->getUser($_POST['mail'],$_POST['pass']);
+            //ユーザー検索
+            $userArray = $dbmng->getUserByMail($_POST['mail'],$_POST['pass']);
             foreach ($userArray as $row) {
                 //セッション作成
-            $_SESSION['user_id']=$row['user_id'];
-            echo $row['user_id'];
-        }
+                $_SESSION['user_id']=$row['user_id'];
+            }
+            
         } catch (BadMethodCallException $bex) {
             echo "<script> alert('メールアドレスが存在しません。');</script>";
             $msg='メールアドレスが存在しません。';
@@ -20,7 +23,8 @@
             $msg ='パスワードが一致しません';
             echo '<script> console.log('.json_encode( $msg ).')</script>';
         }
-        header("Locaion:Oyamadaprofile.php");
+        //移動   テストで一旦　Oyamadaprofile　にしてます
+        header('Location: Oyamadaprofile.php');
         exit();
     }
 ?>
