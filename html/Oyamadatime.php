@@ -12,7 +12,7 @@
 <body>
     <?php
         require '../DAO/postdb.php';
-        $daoPost = new DAO_post();
+        $daoPostDb = new DAO_post();
     ?>
     <div id="app">
     <!-- ヘッダー -->
@@ -48,7 +48,7 @@
                 <div class="box">
                     <img src="../userImage/main.jpg" class="profielIcon" />
                     <p class="userName">アボカドくん</p>
-                    <p class="userComment">このチャーハンおいしかった</p>
+                    <p class="userComment"><?php $daoPostDb->getPostDetail(1); ?>このチャーハンおいしかった</p>
                     <img src="../userImage/main.jpg" class="postImage">
                 </div>
                 <div class="row row-eq-height">
