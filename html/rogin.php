@@ -15,9 +15,7 @@
             $_SESSION['user_id']=$row['user_id'];
             // echo $row['user_id'];
         }
-
-                $_SESSION['user_id']=$row['user_id'];
-            }
+    }
             
 
         } catch (BadMethodCallException $bex) {

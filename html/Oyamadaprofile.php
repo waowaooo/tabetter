@@ -57,7 +57,6 @@
 
 <div id="photo">
     <img src="../DAO/display.php?id=1" width="100">
-    <img src="../svg/tamanegi.svg" alt="プロフィール画像" class="p_photo">
     </div>
     <div class="edit">
         <img src="../svg/tpyosaka.svg" alt="編集ボタン" >
