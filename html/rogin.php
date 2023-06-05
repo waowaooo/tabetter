@@ -13,12 +13,20 @@
             $userArray = $dbmng->getUserByMail($_POST['mail'],$_POST['pass']);
             foreach ($userArray as $row) {
                 //セッション作成
+
                 $_SESSION['user_id']=$row['user_id'];
                 // echo $row['user_id'];
             }
             //移動   テストで一旦　Oyamadaprofile　にしてます
             header('Location: time.php');
             exit();
+
+
+            $_SESSION['user_id']=$row['user_id'];
+            // echo $row['user_id'];
+        }
+            
+
         } catch (BadMethodCallException $bex) {
             //エラーキャッチ　メアドなし
             $msg='メールアドレスが存在しません。';
