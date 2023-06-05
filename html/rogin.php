@@ -14,7 +14,8 @@
 
             $_SESSION['user_id']=$row['user_id'];
             // echo $row['user_id'];
-            }
+        }
+            
         } catch (BadMethodCallException $bex) {
             // echo "<script> alert('メールアドレスが存在しません。');</script>";
             // $msg='メールアドレスが存在しません。';
