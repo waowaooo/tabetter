@@ -21,7 +21,7 @@
             exit();
         } catch (BadMethodCallException $bex) {
             //エラーキャッチ　メアドなし
-            $msg='メールアドレスが存在しません。';
+            $msg='メールアドレスが存在しません';
         }catch(LogicException $lex){
             //パスなし
             $msg ='パスワードが一致しません';
