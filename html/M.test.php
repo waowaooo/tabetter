@@ -59,6 +59,8 @@
                     <input type="text" name="menu">
                     <p>価格のテキストボックス</p>
                     <input type="text" name="price">
+                    <p>場所のテキストボックス</p>
+                    <input type="text" name="addres">
                     </details>
             </div>
             <div>
