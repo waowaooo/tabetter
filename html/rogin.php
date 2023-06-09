@@ -18,7 +18,7 @@
                 // echo $row['user_id'];
             }
             //移動   テストで一旦　Oyamadaprofile　にしてます
-            header('Location: time.php');
+            header('Location: Oyamadatime.php');
             exit();
         } catch (BadMethodCallException $bex) {
             //エラーキャッチ　メアドなし
