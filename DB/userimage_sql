@@ -8,4 +8,3 @@ CREATE TABLE user_image (
 );
 
 
-//INSERT INTO post_images (post_id) VALUES(1),(2);
