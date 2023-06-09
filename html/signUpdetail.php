@@ -13,10 +13,6 @@ $email = $_POST['mail'];
 
 $query = "SELECT * FROM user WHERE user_id = :id OR mail = :email";
 $result = $pdo->prepare($query);
-$result->bindValue(':id,$id',PDO::PARAM_STR);
-$result->bindValue(':email,$email',PDO::PARAM_STR);
-$result->execute();
-
 $row = $result->fetch(PDO::FETCH_ASSOC);
 
 // レコードの数をチェックしてメッセージを表示
