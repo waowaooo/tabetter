@@ -14,6 +14,7 @@ $ps2->execute();
 $row = $ps2->fetch(PDO::FETCH_ASSOC);
 //データベース内のメールアドレスと重複していない場合、登録する。
 if (!isset($row['mail']) && !isset($row['user_id'])) {
+        if(strlen($_POST['userId']) == 8){
 
 $sql = "INSERT INTO user(user_id,user_name,mail,password)
         VALUES(?,?,?,?)";
@@ -42,7 +43,10 @@ $sql2 = "INSERT INTO user_image(image_name, image_type, user_image, image_size, 
         $stmt->execute();
 
 
-header('Location: https://localhost/tabetter/html/M.test.php');
+header('Location: https://localhost/tabetter/html/rogin.php');
+}else{
+header('Location: https://localhost/tabetter/html/signUpIdMsg.php');
+}
 }else{
 header('Location: https://localhost/tabetter/html/signUpMsg.php');
 }
