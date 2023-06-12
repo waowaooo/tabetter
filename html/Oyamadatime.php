@@ -11,8 +11,10 @@
 </head>
 <body>
     <?php
-        require '../DAO/postdb.php';
+        require_once '../DAO/postdb.php';
+        require_once '../DAO/userdb.php';
         $daoPostDb = new DAO_post();
+        $daoUserDb = new DAO_userdb();
     ?>
     <div id="app">
     <!-- ヘッダー -->
@@ -42,35 +44,52 @@
   <div class="scrollable">
   <div class="container-fluid">
     <div class="row">
-        <!-- 投稿のカード -->
-        <div class="card">
-            <div class="card-body">
-                <div class="box">
-                    <img src="../userImage/main.jpg" class="profielIcon" />
-                    <p class="userName">アボカドくん</p>
-                    <p class="userComment"><?php $daoPostDb->getPostDetail(1); ?>このチャーハンおいしかった</p>
-                    <img src="../userImage/main.jpg" class="postImage">
-                </div>
-                <div class="row row-eq-height">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-end">
-                            <img :src="image" @click="changeColor()" id="likeButton"></button>
-                            <div class="like" id="likeCnt">
-                                0
-                            </div>
-                        </div>
+
+    <?php
+        $postIds = array();
+        $postIds = $daoPostDb->getPostIds();
+        $userIds = array();
+        
+
+        foreach($postIds as $postId){
+            $userIds = $daoPostDb->getUserIdsByPostId($postId);
+            echo '
+            <!-- 投稿のカード -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="box">
+                        <img src="../userImage/main.jpg" class="profielIcon" />
+                        <p class="userName">',$daoUserDb->getUserName($userIds),'</p>
+                        <p class="userComment">
+                        '
+                        ,$daoPostDb->getPostDetail($postId),
+                        '
+                        </p>
+                        <img src="../userImage/main.jpg" class="postImage">
                     </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-center">
-                            <img src="../svg/comment.svg" id="commentButton">
-                            <div class="comment">
-                                0
+                    <div class="row row-eq-height">
+                        <div class="col-6">
+                            <div class="d-flex justify-content-end">
+                                <img :src="image" @click="changeColor()" id="likeButton"></button>
+                                <div class="like" id="likeCnt">
+                                    ',$daoPostDb->getPostCount($postId),'
+                                </div>
                             </div>
                         </div>
-                    </div>                                                    
+                        <div class="col-6">
+                            <div class="d-flex justify-content-center">
+                                <img src="../svg/comment.svg" id="commentButton">
+                                <div class="comment">
+                                    0
+                                </div>
+                            </div>
+                        </div>                                                    
+                    </div>
                 </div>
             </div>
-        </div>
+            ';
+        }
+    ?>
         <!-- 投稿のカード -->
         <div class="card">
             <div class="card-body">
