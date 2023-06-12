@@ -31,6 +31,7 @@ class DAO_userdb{
             $pdo = $this->dbConnect();
         
             $sql = "SELECT * FROM user WHERE user_id = ?";
+
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1, $userId, PDO::PARAM_STR);
             $ps->execute();
@@ -44,12 +45,11 @@ class DAO_userdb{
                 return 'ユーザーメールが見つかりませんでした';
             }
         }
-
-
         public function getUserBio($userId) {
             $pdo = $this->dbConnect();
         
             $sql = "SELECT * FROM user WHERE user_id = ?";
+
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1, $userId, PDO::PARAM_STR);
             $ps->execute();
@@ -63,6 +63,29 @@ class DAO_userdb{
                 return '自己紹介が見つかりませんでした';
             }
         }
+
+
+
+
+        public function getUserProfile_image($userId) {
+            $pdo = $this->dbConnect();
+        
+            $sql = "SELECT * FROM user WHERE user_id = ?";
+
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $userId, PDO::PARAM_STR);
+            $ps->execute();
+        
+            $result = $ps->fetch(PDO::FETCH_ASSOC);
+        
+            if ($result) {
+                return $result['profile_image'];
+
+            } else {
+                return 'プロフィール画像が見つかりませんでした';
+            }
+
+            }
     }
         
  
