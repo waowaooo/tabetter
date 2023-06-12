@@ -4,6 +4,8 @@
     //DAO接続
     require_once '../DAO/logindb.php';
     $dbmng = new DAO_Logindb;
+    //エラーメッセージ変数
+    $msg ="";
     //POST要求があれば
     if ($_SERVER['REQUEST_METHOD']==='POST') {
         try {
@@ -12,27 +14,30 @@
             foreach ($userArray as $row) {
                 //セッション作成
 
+                $_SESSION['user_id']=$row['user_id'];
+                // echo $row['user_id'];
+            }
+            //移動   テストで一旦　Oyamadaprofile　にしてます
+            header('Location: Oyamadatime.php');
+            exit();
+
+        } catch (BadMethodCallException $bex) {
+
+
             $_SESSION['user_id']=$row['user_id'];
             // echo $row['user_id'];
         }
-
-                $_SESSION['user_id']=$row['user_id'];
-            }
             
 
-        } catch (BadMethodCallException $bex) {
-            echo "<script> alert('メールアドレスが存在しません。');</script>";
-            $msg='メールアドレスが存在しません。';
-            echo '<script> console.log('.json_encode( $msg ).')</script>';
+        catch (BadMethodCallException $bex) {
+
+            //エラーキャッチ　メアドなし
+            $msg='メールアドレスが存在しません';
         }catch(LogicException $lex){
-          echo "<script> alert('パスワードが一致しません。');</script>";
+            //パスなし
             $msg ='パスワードが一致しません';
-            echo '<script> console.log('.json_encode( $msg ).')</script>';
         }
-        //移動   テストで一旦　Oyamadaprofile　にしてます
-        header('Location: Oyamadaprofile.php');
-        exit();
-    
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -80,7 +85,9 @@
                     </div>
                     <!-- エラーメッセ -->
                     <div class="errorMsgDiv mb-1 mt-4">
-                        <p id="errorMsg" class="text-danger text-center"></p>    
+                        <p id="errorMsg" class="text-danger text-center"><?php
+                        //エラーメッセージphp変数
+                        echo $msg; ?></p>    
                     </div>
                     <!-- ログインボタン -->
                     <div class="d-grid gap-2 col-6 mx-auto ">
@@ -92,7 +99,6 @@
                 <div class="d-grid gap-2 col-6 mx-auto mt-3">
                     <button class="registBtn btn" type="button" onclick="location.href='toroku.html'">新規登録</button>
                 </div>
-                
         </div> 
         
         <!-- <div class="fogetPassDiv col">
