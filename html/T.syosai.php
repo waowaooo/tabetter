@@ -46,21 +46,7 @@
     </div>
   </header>
   <!-- ヘッダー↑ -->
-  <section id="image-carousel" class="splide" aria-label="投稿画像">
-    <div class="splide__track">
-            <ul class="splide__list">
-                <li class="splide__slide">
-                <img src="../userImage/main.jpg" alt="画像1">
-                </li>
-                <li class="splide__slide">
-                <img src="../userImage/main.jpg" alt="画像2">
-                </li>
-                <li class="splide__slide">
-                <img src="../userImage/main.jpg" alt="画像3">
-                </li>
-            </ul>
-    </div>
-    </section>
+ 
   <div class="scrollable">
   <div class="container-fluid">
     <div class="row">
@@ -90,35 +76,63 @@
                         ,$daoPostDb->getPostDetail($postId),
                         '
                         </p>
-                        
+                        <section id="image-carousel" class="splide" aria-label="投稿画像">
+                        <div class="splide__track">
+                                <ul class="splide__list">
+                                    <li class="splide__slide">
+                                    <img src="../userImage/main.jpg" alt="画像1">
+                                    </li>
+                                    <li class="splide__slide">
+                                    <img src="../userImage/main.jpg" alt="画像2">
+                                    </li>
+                                    <li class="splide__slide">
+                                    <img src="../userImage/main.jpg" alt="画像3">
+                                    </li>
+                                </ul>
+                        </div>
+                        </section>
 
                         
                     </div>
                     <div class="row row-eq-height">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="d-flex justify-content-end">
+                            
                                 <img :src="image" @click="changeColor()" id="likeButton"></button>
+                            
                                 <div class="like" id="likeCnt">
                                     ',$daoPostDb->getPostCount($postId),'
                                 </div>
+                            
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="d-flex justify-content-center">
                                 <img src="../svg/comment.svg" id="commentButton">
                                 <div class="comment">
                                     0
                                 </div>
                             </div>
-                        </div>                                                    
+                        </div>        
+                        <button class="detailsBtn navbar-toggler col-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.5 12L18.5933 0.75H0.406734L9.5 12Z" fill="#D9D9D9"/>
+                            </svg>
+                            詳細
+                        </button>
+                        <div class="collapse" id="navbarToggleExternalContent">
+                            <P>店名:</P>
+                            <P>メニュー:</P>
+                            <P>料金 :</P>
+                            <P>場所:</P>
+                        </div>                   
                     </div>
                 </div>
             </div>
             ';
         }
     ?>
-
-
+   
         <!-- 投稿のカード -->
         <div class="card">
             <div class="card-body">
@@ -150,9 +164,9 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
 </div>
-</div>
-
     <!-- navigationBar -->
     <div class="border"></div>
  
@@ -180,11 +194,12 @@
     </div>
 
     <!-- splide -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
-    <script src="../js/T.syosai.js"></script>  
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="../js/OyamadaBar.js"></script>
     <script src="../js/time.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
+    <script src="../js/T.syosai.js"></script>  
+
 </body>
 </html>
