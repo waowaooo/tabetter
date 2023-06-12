@@ -48,7 +48,29 @@ div .d-flex.justify-content-center {
     margin-bottom: 5%;
 }
 
-#likeButton {
+.likeButton{
+    display: flex;
+}
+
+.likeButton input:checked+label{
+    -webkit-mask-image: url(../svg/Like-black.png);
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+
+	mask-image: url(../svg/Like-black.png);
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
+
+    background-color: orange;
+}
+
+.likeButton input{
+    display: none;
+}
+
+.likeButtonImg {
     width: 30px;
     height: 30px;
 }
