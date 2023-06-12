@@ -1,3 +1,44 @@
+<?php
+//セッションスタート
+    session_start();
+    //DAO接続
+    require_once '../DAO/logindb.php';
+    $dbmng = new DAO_Logindb;
+    //エラーメッセージ変数
+    $msg ="";
+    //POST要求があれば
+    if ($_SERVER['REQUEST_METHOD']==='POST') {
+        try {
+            //ユーザー検索
+            $userArray = $dbmng->getUserByMail($_POST['mail'],$_POST['pass']);
+            foreach ($userArray as $row) {
+                //セッション作成
+
+                $_SESSION['user_id']=$row['user_id'];
+                // echo $row['user_id'];
+            }
+            //移動   テストで一旦　Oyamadaprofile　にしてます
+            header('Location: Oyamadatime.php');
+            exit();
+
+        } catch (BadMethodCallException $bex) {
+
+
+            $_SESSION['user_id']=$row['user_id'];
+            // echo $row['user_id'];
+        }
+            
+
+        catch (BadMethodCallException $bex) {
+
+            //エラーキャッチ　メアドなし
+            $msg='メールアドレスが存在しません';
+        }catch(LogicException $lex){
+            //パスなし
+            $msg ='パスワードが一致しません';
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -25,7 +66,7 @@
         <div id="underLogo"> 
             <h5 class="headline col text-center mb-5">美味しいを伝えよう</h5>
                 <!-- フォーム -->
-                <form name="loginForm">
+                <form name="loginForm" action="" method="post">
                     <div class="form text-center col" id="FormAbove">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 5H22V19H2V5ZM4 7V17H20V7H4Z" fill="#424242"/>
@@ -44,7 +85,9 @@
                     </div>
                     <!-- エラーメッセ -->
                     <div class="errorMsgDiv mb-1 mt-4">
-                        <p id="errorMsg" class="text-danger text-center"></p>    
+                        <p id="errorMsg" class="text-danger text-center"><?php
+                        //エラーメッセージphp変数
+                        echo $msg; ?></p>    
                     </div>
                     <!-- ログインボタン -->
                     <div class="d-grid gap-2 col-6 mx-auto ">
@@ -56,12 +99,11 @@
                 <div class="d-grid gap-2 col-6 mx-auto mt-3">
                     <button class="registBtn btn" type="button" onclick="location.href='toroku.html'">新規登録</button>
                 </div>
-                
         </div> 
         
-        <div class="fogetPassDiv col">
+        <!-- <div class="fogetPassDiv col">
         <a href="rogin.html" class="fogetPass">パスワードを忘れた場合はこちら</a>
-        </div>
+        </div> -->
     </div>
     
     <!-- bootstrap -->

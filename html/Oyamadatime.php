@@ -10,9 +10,15 @@
     <link rel="stylesheet" href="../css/Oyamadatime2.css">
 </head>
 <body>
+    <?php
+        require_once '../DAO/postdb.php';
+        require_once '../DAO/userdb.php';
+        $daoPostDb = new DAO_post();
+        $daoUserDb = new DAO_userdb();
+    ?>
     <div id="app">
     <!-- ヘッダー -->
-   <header class="mb-3 border-bottom" id="header">
+   <header class="border-bottom" id="header">
     <div class="container-fluid">
         <div class="row row justify-content-between">
             <div class="d-flex align-items-center mb-0 text-dark text-decoration-none col-7 text-left px-0" style="height: 50px; padding-top: 55px;">
@@ -20,11 +26,7 @@
             </div>
     
             <button class="navbar-toggler col-3 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation" style="height: 50px; box-shadow: none;">
-                    <rect width="60" height="60" fill="url(#pattern1)"/>
-                    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-                    <use xlink:href="#image0_173_3205" transform="scale(0.00333333)"/>
-                    </pattern>
-                    <img src="../svg/b.svg" width="50" height="50" viewBox="0 0 60 60" fill="none" > 
+                <img src="../svg/b.svg" width="50" height="50" viewBox="0 0 60 60" fill="none" > 
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarsExample05">
@@ -42,65 +44,54 @@
   <div class="scrollable">
   <div class="container-fluid">
     <div class="row">
-        <!-- 投稿のカード -->
-        <div class="card">
-            <div class="card-body">
-                <div class="box">
-                    <img src="../userImage/main.jpg" class="profielIcon" />
-                    <p class="userName">アボカドくん</p>
-                    <p class="userComment">このチャーハンおいしかった</p>
-                    <img src="../userImage/main.jpg" class="postImage">
-                </div>
-                <div class="row row-eq-height">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-end">
-                            <img :src="image" @click="changeColor()" id="likeButton"></button>
-                            <div class="like" id="likeCnt">
-                                0
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-center">
-                            <img src="../svg/comment.svg" id="commentButton">
-                            <div class="comment">
-                                0
-                            </div>
-                        </div>
-                    </div>                                                    
-                </div>
-            </div>
-        </div>
-        <!-- 投稿のカード -->
-        <div class="card">
-            <div class="card-body">
-                <div class="box">
-                    <img src="../userImage/main.jpg" class="profielIcon" />
-                    <p class="userName">パンダ</p>
-                    <p class="userComment">鶏料理専門店に行ってきました50種類の鶏料理があってどれにするか悩んだけれどタイ料理のカオマンガイにしました</p>
-                    <img src="../userImage/09_02_khaomankai_06.jpg" class="postImage">
-                </div>
 
-                <div class="row row-eq-height">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-end">
-                            <img :src="image" @click="changeColor()" id="likeButton"></button>
-                            <div class="like" id="likeCnt">
-                                0
-                            </div>
-                        </div>
+    <?php
+        $postIds = array();
+        $postIds = $daoPostDb->getPostIds();
+        $userIds = array();
+        
+
+        foreach($postIds as $postId){
+            $userIds = $daoPostDb->getUserIdsByPostId($postId);
+            echo '
+            <!-- 投稿のカード -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="box">
+                        <img src="../userImage/main.jpg" class="profielIcon" />
+                        <p class="userName">',$daoUserDb->getUserName($userIds),'</p>
+                        <p class="userComment">
+                        '
+                        ,$daoPostDb->getPostDetail($postId),
+                        '
+                        </p>
+                        <img src="../DAO/display.php?id=',($postId),'" width="100" class="postImage">
                     </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-center">
-                            <img src="../svg/comment.svg" id="commentButton">
-                            <div class="comment">
-                                0
+                    <div class="row row-eq-height">
+                        <div class="col-6">
+                            <div class="d-flex justify-content-end">
+                                <div class="likeButton">
+                                <input type="checkbox" checked id="',($postId),'" name="likeButton"><label for="',($postId),'"><img src="../svg/Like-black.png" class="likeButtonImg"/></label>
+                                </div>
+                                <div class="like" id="likeCnt">
+                                    ',$daoPostDb->getPostCount($postId),'
+                                </div>
                             </div>
                         </div>
-                    </div>                                      
+                        <div class="col-6">
+                            <div class="d-flex justify-content-center">
+                                <img src="../svg/comment.svg" id="commentButton">
+                                <div class="comment">
+                                    0
+                                </div>
+                            </div>
+                        </div>                                                    
+                    </div>
                 </div>
             </div>
-        </div>
+            ';
+        }
+    ?>
     </div>
 </div>
 </div>
