@@ -65,12 +65,14 @@
                         ,$daoPostDb->getPostDetail($postId),
                         '
                         </p>
-                        <img src="../userImage/main.jpg" class="postImage">
+                        <img src="../DAO/display.php?id=',($postId),'" width="100" class="postImage">
                     </div>
                     <div class="row row-eq-height">
                         <div class="col-6">
                             <div class="d-flex justify-content-end">
-                                <img :src="image" @click="changeColor()" id="likeButton"></button>
+                                <div class="likeButton">
+                                <input type="checkbox" checked id="',($postId),'" name="likeButton"><label for="',($postId),'"><img src="../svg/Like-black.png" class="likeButtonImg"/></label>
+                                </div>
                                 <div class="like" id="likeCnt">
                                     ',$daoPostDb->getPostCount($postId),'
                                 </div>
@@ -90,36 +92,6 @@
             ';
         }
     ?>
-        <!-- 投稿のカード -->
-        <div class="card">
-            <div class="card-body">
-                <div class="box">
-                    <img src="../userImage/main.jpg" class="profielIcon" />
-                    <p class="userName">パンダ</p>
-                    <p class="userComment">鶏料理専門店に行ってきました50種類の鶏料理があってどれにするか悩んだけれどタイ料理のカオマンガイにしました</p>
-                    <img src="../userImage/09_02_khaomankai_06.jpg" class="postImage">
-                </div>
-
-                <div class="row row-eq-height">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-end">
-                            <img :src="image" @click="changeColor()" id="likeButton"></button>
-                            <div class="like" id="likeCnt">
-                                0
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-center">
-                            <img src="../svg/comment.svg" id="commentButton">
-                            <div class="comment">
-                                0
-                            </div>
-                        </div>
-                    </div>                                      
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </div>
