@@ -12,7 +12,3 @@ header {
     background-color: #fff;
     border: none;
 }
-/* 詳細トグル ボタン*/
-.navber-toggler:focus{
- box-shadow: none;
-}
