@@ -18,33 +18,64 @@
         }
         .image-container {
             overflow-x: auto;
-
             max-width:100%;
         }
         .t_text{
-            font-size:18px;
+            font-size:14px;
+            padding-bottom: 10%;
         }
         .t_photo{
             display: flex;
+            padding-bottom: 5%;
         }
         .t_photo img{
             flex: 0 0 auto;
             width: 70%;
             height: auto;
         }
+        .s-container{
+            padding-top: 5%;
+        }
+                #file-iamge{
+            width: 20px;
+        }
+        #filesend{
+            display: none;
+        }
+        ul.store{
+        }
         ul.store li{
             color: #898989;
             list-style: none;
             padding-left: 0;
-            display: inline-block;
         }
+        /* .sub{
+            flex: 1; 
+            align-items: center;
+            justify-content: center;
+        } */
+        .a{
+            font-size: 20px;        
+            display: inline-block;
+            text-align:justify;
+            text-align-last:justify;
+            text-justify:inter-ideograph;
+            /* margin-right: 15px; 
+            margin-bottom: 30px; */
+        }
+        /* .main{
+            flex: 2;
+            align-items: center;
+            justify-content: center;
+        } */
         .s_syosai{
             display: inline-block;
+            margin-top: 5px;
             margin-right: 20px;
+            margin-bottom: 30px;
             background-color: #d3d3d3;
             border:none;
             box-shadow: 1px 3px 4px rgb(170,170,170);
-            margin-bottom: 30px;
         }
         .sousin{
             float:right;
@@ -113,30 +144,55 @@
                         <img src="../svg/tamanegi.svg" alt="" >
                     </div>
                 </div>
+                <label>
+                    <span class="filelabel">
+                        <img src="../svg/imagefile.svg" alt="" id="file-iamge">
+                    </span>
+                    <input type="file"id="filesend">
+                </label>
                 <details>
-                    <summary>詳細</summary>
+                    <summary class="s-container">詳細</summary>
                         <ul class="store">
+                        <!-- <div class="sab">
+                                <li>
+                                    <span class="a">店名:</span>
+                                </li>
+                                <li>
+                                    <span class="a">メニュー:</span>
+                                </li>
+                                <li>
+                                    <span class="a">料金:</span>
+                                </li>
+                                <li>
+                                    <span class="a">場所:</span>
+                                </li>
+                            </div>
+                            <div class="main">
+                                    <input type="text" name="store"class="s_syosai">
+                                    <input type="text" name="store"class="s_syosai">
+                                    <input type="text" name="store"class="s_syosai">
+                                    <input type="text" name="store"class="s_syosai">
+                            </div>
+                        </ul> -->
+                            <li>
+                                    <span class="a">店名:</span>
+                                    <input type="text" name="store"class="s_syosai">
+                            </li>
                             <li>
                                 <div>
-                                    <span>店名:</span>
+                                    <span class="a">メニュー:</span>
                                     <input type="text" name="store"class="s_syosai">
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <span>メニュー:</span>
+                                    <span class="a">価格:</span>
                                     <input type="text" name="store"class="s_syosai">
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <span>価格:</span>
-                                    <input type="text" name="store"class="s_syosai">
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>場所:</span>
+                                    <span class="a">場所:</span>
                                     <input type="text" name="store"class="s_syosai">
                                 </div>
                             </li>

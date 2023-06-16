@@ -5,7 +5,6 @@ Vue.component('open-modal',{
       <div id="overlay" v-on:click="clickEvent">
           <div id="content"class="modal_syosai"　 v-on:click="stopEvent">
             <p><slot></slot></p>
-            <button v-on:click="clickEvent" class="close">×</button>
           </div>
       </div>
       `,
