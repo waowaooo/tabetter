@@ -16,6 +16,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/OyamadaBar.css">
         <link rel="stylesheet" href="../css/forum.css">
+        <link rel="stylesheet" href="../css/modal.css">
+        <link rel="stylesheet" href="../css/Oyamadaprofile.css">
 </head>
 <body>
 
@@ -84,37 +86,60 @@
     </div>
       <?php } ?>
 
-            <!-- navigationBar -->
-    <div class="border"></div>
- 
-            <div class="navigation">
-            <a class="list-link" href="#" onclick="changeImage(this, 'Oyamadatime.html')">
-            <i class="icon">
+
+
+      <div id="modal" class="modal">
+    <div id="overlay" class="modal-content">
+    <div id="content" class="content">
+    <form method="POST" action="../DAO/userupdate.php" enctype="multipart/form-data">
+    <h2>プロフィール編集</h2>
+        <p>ユーザー名:</p>
+        <input type="text" name="user_name" id="edit-username">
+        <p>自己紹介文:</p>
+        <input type="text" name="bio" id="edit-bio">
+        <input type="hidden" name="id">
+        <button onclick="saveChanges()" type="submit">保存</button>
+    </form>
+    <button onclick="closeModal()">キャンセル</button>
+    </div>
+    </div>
+    </div>
+
+
+
+
+ <!-- navigationBar -->
+ <div class="border"></div>
+
+<div class="navigation">
+    <a class="list-link" href="timeLine2.php">
+        <i class="icon">
             <img src="../svg/time.svg" class="image-size">
-            </i>
-            </a>
-            <a class="list-link" href="#" onclick="changeImage2(this, 'Oyamadaforum.html')">
-            <i class="icon">
+        </i>
+    </a>
+    <a class="list-link" href="forum.php">
+        <i class="icon">
             <img src="../svg/forum2.svg" class="image-size1">
-            </i>
-            </a>
-            <a class="list-link" href="#" onclick="changeImage3(this, 'Oyamadatokou.html')">
-            <i class="icon">
-            <img src="../svg/post.svg" class="image-size">
-            </i>
-            </a>
-            <a class="list-link" href="#" onclick="changeImage4(this, 'Oyamadaprofile.html')">
-            <i class="icon">
+        </i>
+    </a>
+    <a class="list-link">
+        <i class="icon">
+            <img src="../svg/post.svg" class="image-size" onclick="openModal()">
+        </i>
+    </a>
+    <a class="list-link" href="myProfile2.php">
+        <i class="icon">
             <img src="../svg/profile.svg" class="image-size">
-            </i>
-            </a>
-            </div>
+        </i>
+    </a>
+</div>
 
 
 
 
 
 
+    <script src="../js/Oyamadaprofile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  </body>
 </html>
