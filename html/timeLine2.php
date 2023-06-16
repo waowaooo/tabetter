@@ -118,15 +118,29 @@
 <div id="modal" class="modal">
     <div id="overlay" class="modal-content">
     <div id="content" class="content">
-    <form method="POST" action="../DAO/userupdate.php" enctype="multipart/form-data">
-    <h2>プロフィール編集</h2>
-        <p>ユーザー名:</p>
-        <input type="text" name="user_name" id="edit-username">
-        <p>自己紹介文:</p>
-        <input type="text" name="bio" id="edit-bio">
-        <input type="hidden" name="id">
-        <button onclick="saveChanges()" type="submit">保存</button>
-    </form>
+    <form method="POST" action="../DAO/post_imagesdb.php" enctype="multipart/form-data">
+            <div>
+                <p>投稿詳細のテキストボックス</p>
+                <input type="text" name="detail">
+                <details>
+                <summary>詳細</summary>
+                    <p>店名のテキストボックス</p>
+                    <input type="text" name="store">
+                    <p>メニュー名のテキストボックス</p>
+                    <input type="text" name="menu">
+                    <p>価格のテキストボックス</p>
+                    <input type="text" name="price">
+                    <p>場所のテキストボックス</p>
+                    <input type="text" name="address">
+                    </details>
+            </div>
+            <div>
+                <p>画像を最大４枚まで選択</p>
+                <input type="file" name="image[]" multiple>
+                <input type="text" name="userid">
+                <input type="submit" value="送信！">
+            </div>
+        </form>
     <button onclick="closeModal()">キャンセル</button>
     </div>
     </div>
